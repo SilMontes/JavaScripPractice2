@@ -1,12 +1,16 @@
 // Write your function here
-function getAverageOfElementsAtProperty(array,key){
-    for (let clave in array){
-        if (clave==key && key== typeof[]){
-            let sum= key.reduce((prev,current)=> current += prev)
-            let avg = sum / values.length
-             return avg
-        }else{
-            return 0
+function getAverageOfElementsAtProperty(object,key){
+    //revisa si es un arreglo, si el valor es indefinido y si está vacio
+    if(Array.isArray(object[key])===false || object[key]===undefined ||object[key].length===0){
+        return 0
+    }else{
+        let sumOfValues=0;
+        for(key in object){
+            for(let i=0; i<object[key].length;i++){
+                sumOfValues += object[key][i]
+            }
+            let average=sumOfValues/object[key].length
+            return average
         }
     }
 }
